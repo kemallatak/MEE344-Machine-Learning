@@ -1,6 +1,6 @@
 # MEE344 Proje Model Sonuçları ve Raporu
 
-Bu rapor, geliştirilen uçtan uca makine öğrenmesi yük tahmini boru hattının performans sonuçlarını ve detaylarını içmektedir.
+Bu rapor, geliştirilen yük tahmin modelinin performans sonuçlarını ve detaylarını içmektedir.
 
 ## Veri Seti Özeti
 - **Toplam Gözlem Sayısı:** 2064 saatlik veri (yaklaşık 3 ay)

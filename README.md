@@ -1,6 +1,6 @@
-# MEE344 Makine Öğrenmesi Projesi - Uçtan Uca Elektrik Yükü Tahmin Boru Hattı
+# MEE344 Makine Öğrenmesi Projesi - Uçtan Uca Elektrik Yükü Tahmin Modeli
 
-Bu proje, **MEE344 Makine Öğrenmesi** dersi 4. sınıf mühendislik bitirme seviyesi gereksinimleri çerçevesinde, Türkiye elektrik şebekesinin saatlik toplam elektrik talebini/üretimini (`Toplam`) yüksek doğrulukla tahmin etmek amacıyla geliştirilmiş uçtan uca bir makine öğrenmesi boru hattıdır (pipeline).
+Bu proje, **MEE344 Makine Öğrenmesi** dersi 4. sınıf mühendislik bitirme seviyesi gereksinimleri çerçevesinde, Türkiye elektrik şebekesinin saatlik toplam elektrik talebini/üretimini (`Toplam`) yüksek doğrulukla tahmin etmek amacıyla geliştirilmiş uçtan uca bir makine öğrenmesi modeldır (pipeline).
 
 ## Proje Klasör Yapısı
 
@@ -8,7 +8,7 @@ Bu proje, **MEE344 Makine Öğrenmesi** dersi 4. sınıf mühendislik bitirme se
 ├── data/
 │   └── dataset.xlsx                  # Şebeke saatlik elektrik üretim verileri
 ├── src/
-│   └── pipeline.py                   # Modelleme ve tahmin boru hattı kodları (Ana kod)
+│   └── pipeline.py                   # Modelleme ve tahmin modeli kodları (Ana kod)
 ├── reports/
 │   ├── pipeline_results.md           # Model eğitim ve doğrulama metriklerinin detaylı raporu
 │   └── plots/                        # Açıklayıcı Veri Analizi (EDA) ve tahmin grafikleri

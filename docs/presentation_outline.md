@@ -5,7 +5,7 @@ Bu taslak, MEE344 Makine Öğrenmesi dersi jüri değerlendirmesinde sunulmak ü
 ---
 
 ### Slayt 1: Kapak Slaytı (Title & Introduction)
-* **Slayt Başlığı:** Makine Öğrenmesi ile Türkiye Elektrik Şebekesi için Saatlik Yük Tahmini ve Uçtan Uca Tahmin Boru Hattı
+* **Slayt Başlığı:** Makine Öğrenmesi ile Türkiye Elektrik Şebekesi için Saatlik Yük Tahmini ve Saatlik Yük Tahmin Modeli
 * **Slayt Alt Başlığı:** MEE344 Makine Öğrenmesi Dönem Projesi Savunması
 * **Slayt İçeriği:**
   * Proje Danışmanı: [Hocanızın Unvanı & Adı]
@@ -13,7 +13,7 @@ Bu taslak, MEE344 Makine Öğrenmesi dersi jüri değerlendirmesinde sunulmak ü
   * Tarih: 22 Mayıs 2026
   * Kurum: Ticaret Üniversitesi (veya Üniversiteniz)
 * **Konuşma Notları:**
-  > *"Değerli jüri üyeleri, hocalarım ve arkadaşlarım, MEE344 Makine Öğrenmesi dersi kapsamında hazırladığım 'Makine Öğrenmesi ile Türkiye Elektrik Şebekesi için Saatlik Yük Tahmini' projesinin jüri savunmasına hoş geldiniz. Bu sunumda, elektrik şebekemizin dinamiklerini ve tüketim desenlerini uçtan uca makine öğrenmesi boru hattı geliştirerek nasıl modellediğimi, tasarladığım üst düzey özellik mühendisliği (feature engineering) yaklaşımlarını ve elde ettiğim yüksek doğruluktaki sonuçları paylaşacağım."*
+  > *"Değerli jüri üyeleri, hocalarım ve arkadaşlarım, MEE344 Makine Öğrenmesi dersi kapsamında hazırladığım 'Makine Öğrenmesi ile Türkiye Elektrik Şebekesi için Saatlik Yük Tahmini' projesinin jüri savunmasına hoş geldiniz. Bu sunumda, elektrik şebekemizin dinamiklerini ve tüketim desenlerini makine öğrenmesi modeli geliştirerek nasıl modellediğimi, tasarladığım üst düzey özellik mühendisliği (feature engineering) yaklaşımlarını ve elde ettiğim yüksek doğruluktaki sonuçları paylaşacağım."*
 
 ---
 
@@ -76,10 +76,10 @@ Bu taslak, MEE344 Makine Öğrenmesi dersi jüri değerlendirmesinde sunulmak ü
 * **Slayt İçeriği:**
   * **Format ve Kodlama Giderimi:** Ondalık basamakların virgülle ayrıldığı, noktalı virgüllü Türkçe karakterli CSV yapısı CP1254 kodlamasıyla Pandas ortamına alınmıştır.
   * **Karakter Temizliği:** Sütun isimleri makine öğrenmesi standartlarına (ASCII yılan gösterimi - snake_case) getirilmiştir.
-  * **Eksik Veri Analizi:** Veri setinde hiç eksik değer olmadığı doğrulanmıştır. Herhangi bir şebeke kesintisi riskine karşı boru hattına ileri-geri yönlü dolgu (`ffill` ve `bfill`) mekanizması kurulmuştur.
+  * **Eksik Veri Analizi:** Veri setinde hiç eksik değer olmadığı doğrulanmıştır. Herhangi bir şebeke kesintisi riskine karşı modele ileri-geri yönlü dolgu (`ffill` ve `bfill`) mekanizması kurulmuştur.
   * **Zaman Dönüşümü:** Tarih ve Saat metinleri birleştirilerek, zaman indeksini korumak için `datetime64` veri tipine dönüştürülmüştür.
 * **Konuşma Notları:**
-  > *"Veri ön işleme adımında ilk olarak Türkçe karakter ve ondalık ayraç (virgül) gibi Python'ın standart olarak hata verebileceği format karmaşıklıklarını CP1254 kodlaması kullanarak Pandas üzerinde çözdüm. Sütun isimlerini tamamen ASCII karakterlere ve küçük/büyük harf standartlarına uygun hale getirdim. Veride eksik veri bulunmamaktadır ancak gerçek zamanlı sistemler için geliştirdiğimiz boru hattına (pipeline) forward-fill ve backward-fill entegrasyonu yaparak eksik veri hassasiyetini sıfıra indirdik. Son olarak, tarih ve saat değişkenlerini tek bir datetime nesnesi altında birleştirerek zaman sıralamasını indeks olarak garanti altına aldık."*
+  > *"Veri ön işleme adımında ilk olarak Türkçe karakter ve ondalık ayraç (virgül) gibi Python'ın standart olarak hata verebileceği format karmaşıklıklarını CP1254 kodlaması kullanarak Pandas üzerinde çözdüm. Sütun isimlerini tamamen ASCII karakterlere ve küçük/büyük harf standartlarına uygun hale getirdim. Veride eksik veri bulunmamaktadır ancak gerçek zamanlı sistemler için geliştirdiğimiz modele forward-fill ve backward-fill entegrasyonu yaparak eksik veri hassasiyetini sıfıra indirdik. Son olarak, tarih ve saat değişkenlerini tek bir datetime nesnesi altında birleştirerek zaman sıralamasını indeks olarak garanti altına aldık."*
 
 ---
 
@@ -199,9 +199,9 @@ Bu taslak, MEE344 Makine Öğrenmesi dersi jüri değerlendirmesinde sunulmak ü
   * **Limitasyonlar:**
     * Sıcaklık, nem ve bulutluluk gibi meteorolojik verilerin eksikliği (Hava durumu tüketimi doğrudan etkiler).
     * Resmi tatiller, bayramlar gibi takvim dışı anomalilerin veri setinde bulunmaması.
-  * **Gelecek Çalışmalar:** Meteorolojik verilerin boru hattına eklenmesi ve LSTM/GRU gibi Derin Öğrenme modellerinin entegre edilmesi.
+  * **Gelecek Çalışmalar:** Meteorolojik verilerin modele eklenmesi ve LSTM/GRU gibi Derin Öğrenme modellerinin entegre edilmesi.
 * **Konuşma Notları:**
-  > *"Bu çalışmanın pratik hayatta çok geniş uygulama alanları mevcuttur. Geliştirdiğimiz bu yüksek doğruluktaki boru hattı, akıllı şebekelerin otomatik yönetiminde, baz yük santrallerinin devreye girip çıkma planlamalarında ve enerji ticaretinde doğrudan kullanılabilir. Projemizin limitasyonlarına gelecek olursak; veri setimizde sıcaklık ve nem gibi meteorolojik veriler bulunmamaktaydı. Oysa biliyoruz ki çok sıcak yaz günlerinde klima kullanımı şebekede ani pikler oluşturur. Gelecek çalışmalarda, bu makine öğrenmesi hattına hava durumu verilerini de entegre etmeyi ve LSTM, GRU gibi derin öğrenme tabanlı zaman serisi modelleriyle performansı daha da ileriye taşımayı hedefliyorum."*
+  > *"Bu çalışmanın pratik hayatta çok geniş uygulama alanları mevcuttur. Geliştirdiğimiz bu yüksek doğruluktaki model, akıllı şebekelerin otomatik yönetiminde, baz yük santrallerinin devreye girip çıkma planlamalarında ve enerji ticaretinde doğrudan kullanılabilir. Projemizin limitasyonlarına gelecek olursak; veri setimizde sıcaklık ve nem gibi meteorolojik veriler bulunmamaktaydı. Oysa biliyoruz ki çok sıcak yaz günlerinde klima kullanımı şebekede ani pikler oluşturur. Gelecek çalışmalarda, bu makine öğrenmesi modeline hava durumu verilerini de entegre etmeyi ve LSTM, GRU gibi derin öğrenme tabanlı zaman serisi modelleriyle performansı daha da ileriye taşımayı hedefliyorum."*
 
 ---
 
@@ -209,7 +209,7 @@ Bu taslak, MEE344 Makine Öğrenmesi dersi jüri değerlendirmesinde sunulmak ü
 * **Slayt Başlığı:** Sonuç ve Soru-Cevap (Q&A)
 * **Slayt İçeriği:**
   * **Özet:**
-    * MEE344 kapsamında Türkiye elektrik şebekesi için saatlik tahmin boru hattı uçtan uca başarıyla kurulmuştur.
+    * MEE344 kapsamında Türkiye elektrik şebekesi için saatlik tahmin modeli kapsamlı şekilde başarıyla kurulmuştur.
     * Üst düzey özellik mühendisliği (döngüsel zaman, tarihsel gecikmeler, volatilite) tasarlanmıştır.
     * **XGBoost %98.66 R²** ve **Linear Regression %97.13 R²** skoru ile üstün başarı göstermiştir.
     * Kodun ve tüm grafiklerin tam doğrulanabilirliği sağlanmış ve `README.md` kılavuzu hazırlanmıştır.

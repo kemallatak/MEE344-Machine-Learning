@@ -1,5 +1,5 @@
 """
-MEE344 Makine Öğrenmesi Projesi - Uçtan Uca Tahmin Boru Hattı (Pipeline)
+MEE344 Makine Öğrenmesi Projesi - Saatlik Yük Tahmin Modeli (Pipeline)
 Yazar: MEE344 Proje Grubu (4. Sınıf Mühendislik Seviyesi)
 Açıklama: Bu betik, Türkiye saatlik elektrik yükü verilerini kullanarak; veri temizleme,
           Açıklayıcı Veri Analizi (EDA), döngüsel/temporal özellik mühendisliği,
@@ -36,7 +36,7 @@ plots_dir = os.path.join(base_dir, "..", "reports", "plots")
 os.makedirs(plots_dir, exist_ok=True)
 
 print("="*60)
-print("     MEE344 MAKİNE ÖĞRENMESİ UÇTAN UCA MODELLEME BORU HATTI")
+print("     MEE344 MAKİNE ÖĞRENMESİ UÇTAN UCA MODELLEME ÇALIŞMASI")
 print("="*60)
 
 # ==============================================================================
@@ -387,7 +387,7 @@ report_path = os.path.join(base_dir, "..", "reports", "pipeline_results.md")
 
 metrics_summary = f"""# MEE344 Proje Model Sonuçları ve Raporu
 
-Bu rapor, geliştirilen uçtan uca makine öğrenmesi saatlik yük tahmini boru hattının performans sonuçlarını ve detaylarını içermektedir.
+Bu rapor, geliştirilen saatlik yük tahmin modelinin performans sonuçlarını ve detaylarını içermektedir.
 
 ## 1. Veri Seti ve Modelleme Kümesi Özeti
 - **Toplam Gözlem Sayısı:** {len(feat_df)} saatlik veri (Mart - Haziran 2025)
